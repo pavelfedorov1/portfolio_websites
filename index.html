@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>My Portfolio</title>
-  <meta name="description" content="Project portfolio featuring BJJMetrics and 247Brief.">
+  <title>Project Portfolio</title>
+  <meta name="description" content="Minimal portfolio featuring BJJMetrics and 247Brief.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Google Fonts -->
@@ -14,6 +14,10 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
@@ -42,11 +46,11 @@
     }
 
     nav a:hover {
-      color: #00a8ff;
+      color: #fff;
     }
 
     .hero {
-      background: linear-gradient(to right, #00a8ff, #9c88ff);
+      background-color: #222;
       color: white;
       padding: 4em 1em;
       text-align: center;
@@ -61,6 +65,7 @@
       max-width: 700px;
       margin: 0 auto;
       font-size: 1.1rem;
+      color: #ccc;
     }
 
     .carousel {
@@ -109,13 +114,14 @@
     }
 
     .project-item h3 {
-      color: #273c75;
+      color: #111;
       font-size: 1.6rem;
       margin-bottom: 0.5em;
     }
 
     .project-item p {
       margin-bottom: 1em;
+      color: #444;
     }
 
     .project-item a {
@@ -157,9 +163,9 @@
 
   <!-- Image Carousel -->
   <div class="carousel">
-    <img src="https://picsum.photos/1600/600?grayscale&random=1" class="active" alt="Placeholder 1">
-    <img src="https://picsum.photos/1600/600?grayscale&random=2" alt="Placeholder 2">
-    <img src="https://picsum.photos/1600/600?grayscale&random=3" alt="Placeholder 3">
+    <img src="https://picsum.photos/id/1005/1600/600?grayscale" class="active" alt="Warrior 1">
+    <img src="https://picsum.photos/id/1011/1600/600?grayscale" alt="Warrior 2">
+    <img src="https://picsum.photos/id/1027/1600/600?grayscale" alt="Warrior 3">
   </div>
 
   <div class="container">
@@ -205,6 +211,15 @@
       current = (current + 1) % images.length;
       images[current].classList.add('active');
     }, 4000);
+  </script>
+
+  <!-- Scroll to top on load -->
+  <script>
+    window.addEventListener("load", function () {
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+      }, 0);
+    });
   </script>
 
 </body>
