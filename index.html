@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <title>My Portfolio</title>
-  <meta name="description" content="Portfolio of Pavel Fedorov – Showcasing Projects Like BJJMetrics and 247Brief.">
+  <meta name="description" content="Project portfolio featuring BJJMetrics and 247Brief.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
   <style>
     * {
@@ -20,7 +20,6 @@
       font-family: 'Inter', sans-serif;
       background: #f9f9f9;
       color: #333;
-      line-height: 1.6;
     }
 
     header {
@@ -39,7 +38,7 @@
       margin: 0 1em;
       text-decoration: none;
       color: #dcdde1;
-      font-weight: bold;
+      font-weight: 600;
     }
 
     nav a:hover {
@@ -59,9 +58,9 @@
     }
 
     .hero p {
-      font-size: 1.1rem;
       max-width: 700px;
       margin: 0 auto;
+      font-size: 1.1rem;
     }
 
     .carousel {
@@ -129,6 +128,45 @@
       text-decoration: underline;
     }
 
+    form {
+      background-color: white;
+      padding: 2em;
+      max-width: 600px;
+      margin: 3em auto;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    form h2 {
+      margin-bottom: 1em;
+      text-align: center;
+      font-size: 1.8rem;
+    }
+
+    form input, form textarea {
+      width: 100%;
+      padding: 0.75em;
+      margin-bottom: 1em;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-family: inherit;
+    }
+
+    form button {
+      background-color: #00a8ff;
+      color: white;
+      border: none;
+      padding: 0.75em 2em;
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background 0.3s ease;
+    }
+
+    form button:hover {
+      background-color: #007acc;
+    }
+
     footer {
       background-color: #1e272e;
       color: white;
@@ -141,38 +179,38 @@
 <body>
 
   <header>
-    <h1>Pavel Fedorov</h1>
+    <h1>Project Portfolio</h1>
     <nav>
       <a href="#about">About</a>
       <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
     </nav>
   </header>
 
   <section class="hero" id="about">
-    <h2>Welcome to My Portfolio</h2>
+    <h2>Welcome</h2>
     <p>
-      I'm a developer and entrepreneur passionate about building digital tools that help people thrive. 
-      I focus on projects in martial arts, data analytics, and news aggregation — blending design, tech, and usefulness.
+      This page showcases a selection of recent projects including a platform for Brazilian Jiu-Jitsu competitors
+      and a dynamic news aggregation site. Designed to be fast, useful, and scalable.
     </p>
   </section>
 
   <!-- Image Carousel -->
   <div class="carousel">
-    <img src="https://source.unsplash.com/1600x600/?brazilianjiujitsu" class="active" alt="BJJ Image">
-    <img src="https://source.unsplash.com/1600x600/?news,world" alt="News Image">
-    <img src="https://source.unsplash.com/1600x600/?technology,code" alt="Code Image">
+    <img src="https://picsum.photos/1600/600?grayscale&random=1" class="active" alt="Placeholder 1">
+    <img src="https://picsum.photos/1600/600?grayscale&random=2" alt="Placeholder 2">
+    <img src="https://picsum.photos/1600/600?grayscale&random=3" alt="Placeholder 3">
   </div>
 
   <div class="container">
     <section id="projects">
-      <h2 style="text-align:center; font-size:2rem; margin-bottom:1.5em;">My Projects</h2>
+      <h2 style="text-align:center; font-size:2rem; margin-bottom:1.5em;">Featured Projects</h2>
       <div class="projects">
         <div class="project-item">
           <h3>BJJMetrics</h3>
           <p>
-            <strong>BJJMetrics</strong> is a platform for Brazilian Jiu-Jitsu competitors to track tournament results, 
-            showcase titles, and gain visibility in the global BJJ community. Athletes can create profiles, compare stats, 
-            and discover trends from major competitions.
+            A site for Brazilian Jiu-Jitsu competitors to track stats, showcase titles, and explore global competition data.
+            Built to support athlete growth and visibility through clean design and fast tools.
           </p>
           <p>
             <a href="https://www.bjjmetrics.com" target="_blank" rel="noopener">Visit bjjmetrics.com</a>
@@ -182,8 +220,8 @@
         <div class="project-item">
           <h3>247Brief</h3>
           <p>
-            <strong>247Brief</strong> is a fast, no-nonsense news website covering the latest stories in politics, sports, 
-            technology, and global events. Designed for readers who want real-time updates without the clutter.
+            A fast, minimal news platform covering the latest stories across sports, politics, tech, and more. Optimized for real-time
+            content and clean reading experience.
           </p>
           <p>
             <a href="https://www.247brief.com" target="_blank" rel="noopener">Visit 247brief.com</a>
@@ -193,11 +231,20 @@
     </section>
   </div>
 
+  <!-- Contact Form -->
+  <form id="contact">
+    <h2>Contact</h2>
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Your Email" required>
+    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+
   <footer>
-    <p>&copy; 2025 Pavel Fedorov. All rights reserved.</p>
+    <p>&copy; 2025 All rights reserved.</p>
   </footer>
 
-  <!-- JS for Rotating Images -->
+  <!-- Image rotation script -->
   <script>
     const images = document.querySelectorAll('.carousel img');
     let current = 0;
@@ -206,7 +253,7 @@
       images[current].classList.remove('active');
       current = (current + 1) % images.length;
       images[current].classList.add('active');
-    }, 4000); // Change every 4 seconds
+    }, 4000);
   </script>
 
 </body>
