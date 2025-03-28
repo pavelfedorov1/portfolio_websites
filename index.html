@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Portfolio</title>
+  <meta name="description" content="Personal portfolio for showcasing my websites and projects.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Attractive Styling -->
+  <style>
+    /* Reset some default browser styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f5f6fa;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header, nav, footer {
+      background-color: #2f3640;
+      color: #fff;
+      padding: 1em;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5em;
+    }
+
+    nav ul {
+      list-style-type: none;
+    }
+
+    nav li {
+      display: inline-block;
+      margin: 0 0.75em;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    /* Hero / About Section */
+    .hero {
+      background: linear-gradient(120deg, #3498db 0%, #8e44ad 100%);
+      color: #fff;
+      padding: 4em 2em;
+      text-align: center;
+    }
+
+    .hero h2 {
+      font-size: 2.2rem;
+      margin-bottom: 0.5em;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0.5em auto 0;
+    }
+
+    /* Container for main content */
+    .container {
+      max-width: 1100px;
+      margin: 2em auto;
+      padding: 0 1em;
+    }
+
+    /* Projects Section */
+    .projects {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2em;
+      justify-content: center;
+    }
+
+    .project-item {
+      background-color: #fff;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      border-radius: 4px;
+      padding: 1.5em;
+      flex: 1 1 300px;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    .project-item h3 {
+      font-size: 1.6rem;
+      margin-bottom: 0.5em;
+      color: #3498db;
+    }
+
+    .project-item p {
+      margin-bottom: 1em;
+      line-height: 1.5;
+    }
+
+    .project-item a {
+      color: #e74c3c;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .project-item a:hover {
+      text-decoration: underline;
+    }
+
+    /* Footer */
+    footer p {
+      margin: 0;
+    }
+
+    /* Simple smooth scrolling behavior */
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header Section -->
+  <header>
+    <h1>My Portfolio</h1>
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero / About Section -->
+  <section class="hero" id="about">
+    <h2>Welcome!</h2>
+    <p>
+      I’m a developer and entrepreneur passionate about creating solutions that help people 
+      and businesses. Below you'll find my favorite projects, including a platform dedicated 
+      to Brazilian Jiu-Jitsu enthusiasts and a news website covering headlines around the world.
+    </p>
+  </section>
+
+  <!-- Main Content Container -->
+  <div class="container">
+    <!-- Projects Section -->
+    <section id="projects">
+      <h2 style="text-align:center; margin-bottom:1em; font-size:2rem;">My Projects</h2>
+
+      <div class="projects">
+        <!-- BJJMetrics Project -->
+        <div class="project-item">
+          <h3>BJJMetrics</h3>
+          <p>
+            <strong>BJJMetrics</strong> is a site for Brazilian Jiu-Jitsu enthusiasts. 
+            It allows users to track their competition stats, showcase tournament wins, 
+            and log training milestones. Whether you’re a beginner or a seasoned athlete, 
+            BJJMetrics provides the tools to highlight your journey and accomplishments.
+          </p>
+          <p>
+            <a href="https://www.bjjmetrics.com" target="_blank" rel="noopener">
+              bjjmetrics.com
+            </a>
+          </p>
+        </div>
+
+        <!-- 247Brief Project -->
+        <div class="project-item">
+          <h3>247Brief</h3>
+          <p>
+            <strong>247Brief</strong> is your go-to source for the latest headlines and news 
+            across a variety of topics—from sports and politics to entertainment and world events. 
+            Stay updated with quick, concise articles that bring you up-to-speed on the most 
+            significant developments around the globe.
+          </p>
+          <p>
+            <a href="https://www.247brief.com" target="_blank" rel="noopener">
+              247brief.com
+            </a>
+          </p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Footer Section -->
+  <footer>
+    <p>&copy; 2025 Your Name. All rights reserved.</p>
+  </footer>
+</body>
+</html>
