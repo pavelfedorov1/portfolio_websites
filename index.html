@@ -329,6 +329,41 @@
       margin-top: 2rem;
     }
 
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1.2rem;
+      background: #1a1a1a;
+      border: 1px solid #2a2a2a;
+      border-radius: 6px;
+      color: #999;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+    }
+
+    .social-link:hover {
+      background: #222;
+      border-color: #1DA1F2;
+      color: #1DA1F2;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(29, 161, 242, 0.2);
+    }
+
+    .social-link svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
+
     @media (max-width: 768px) {
       body {
         padding: 1rem;
@@ -426,6 +461,14 @@
     </div>
 
     <footer>
+      <div class="social-links">
+        <a href="https://x.com/bondtracker" target="_blank" rel="noopener noreferrer" class="social-link">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+          </svg>
+          @bondtracker
+        </a>
+      </div>
       &copy; <span id="year"></span> Portfolio Websites
     </footer>
   </div>
