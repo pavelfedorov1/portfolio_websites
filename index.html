@@ -2,665 +2,582 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Project Portfolio – BJJMetrics & Pro Judo</title>
-  <meta name="description" content="Portfolio featuring BJJMetrics and Pro Judo — data platforms for combat sports athletes.">
+  <title>Portfolio Websites</title>
+  <meta name="description" content="Portfolio of web platforms: QMetrics, BJJMetrics, and Pro Judo">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  
   <style>
-    :root {
-      --bg: #0a0a0a;
-      --surface: #111;
-      --border: #1f1f1f;
-      --accent: #e8311a;
-      --accent2: #f5a623;
-      --text: #f0ece4;
-      --muted: #666;
-      --card-bg: #141414;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
-    html { scroll-behavior: smooth; }
 
     body {
-      font-family: 'DM Sans', sans-serif;
-      background: var(--bg);
-      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      background: #0f0f0f;
+      color: #e5e5e5;
+      line-height: 1.6;
+      padding: 2rem;
+      position: relative;
       overflow-x: hidden;
-      cursor: none;
     }
 
-    /* Custom cursor */
-    #cursor {
+    /* Animated mesh background */
+    .bg-video {
       position: fixed;
-      width: 12px; height: 12px;
-      background: var(--accent);
-      border-radius: 50%;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
       pointer-events: none;
-      z-index: 9999;
-      transform: translate(-50%, -50%);
-      transition: transform 0.1s, width 0.2s, height 0.2s, background 0.2s;
-      mix-blend-mode: difference;
-    }
-    #cursor-ring {
-      position: fixed;
-      width: 36px; height: 36px;
-      border: 1px solid rgba(232,49,26,0.5);
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 9998;
-      transform: translate(-50%, -50%);
-      transition: transform 0.12s ease-out, width 0.3s, height 0.3s;
-    }
-    body:has(a:hover) #cursor, body:has(button:hover) #cursor { width: 20px; height: 20px; }
-    body:has(a:hover) #cursor-ring, body:has(button:hover) #cursor-ring { width: 56px; height: 56px; opacity: 0.3; }
-
-    /* NAV */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0;
-      z-index: 100;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 1.4rem 3rem;
-      background: rgba(10,10,10,0.85);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-    }
-    .nav-logo {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.4rem;
-      letter-spacing: 0.12em;
-      color: var(--text);
-      text-decoration: none;
-    }
-    .nav-logo span { color: var(--accent); }
-    .nav-links { display: flex; gap: 2.5rem; }
-    .nav-links a {
-      text-decoration: none;
-      color: var(--muted);
-      font-size: 0.8rem;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      transition: color 0.2s;
-    }
-    .nav-links a:hover { color: var(--text); }
-
-    /* HERO */
-    .hero {
-      min-height: 100vh;
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      position: relative;
       overflow: hidden;
-      padding: 8rem 2rem 4rem;
-      text-align: center;
     }
 
-    /* Animated grid bg */
-    .hero-grid {
-      position: absolute; inset: 0;
-      background-image:
-        linear-gradient(rgba(232,49,26,0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(232,49,26,0.04) 1px, transparent 1px);
-      background-size: 60px 60px;
-      animation: gridDrift 20s linear infinite;
-    }
-    @keyframes gridDrift {
-      0% { transform: translateY(0); }
-      100% { transform: translateY(60px); }
-    }
-
-    .hero-glow {
+    .bg-video canvas {
       position: absolute;
-      width: 600px; height: 600px;
-      background: radial-gradient(circle, rgba(232,49,26,0.12) 0%, transparent 70%);
-      top: 50%; left: 50%;
-      transform: translate(-50%, -60%);
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.4;
+    }
+
+    /* Animated gradient overlay */
+    .bg-gradient {
+      position: fixed;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at 20% 50%, rgba(74, 158, 255, 0.1) 0%, transparent 50%),
+                  radial-gradient(circle at 80% 80%, rgba(232, 49, 26, 0.1) 0%, transparent 50%),
+                  radial-gradient(circle at 40% 20%, rgba(91, 143, 214, 0.1) 0%, transparent 50%);
+      animation: gradientShift 15s ease infinite;
       pointer-events: none;
+      z-index: 0;
     }
 
-    .hero-tag {
-      font-size: 0.72rem;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: var(--accent);
-      border: 1px solid rgba(232,49,26,0.3);
-      padding: 0.35rem 1rem;
-      border-radius: 2px;
-      margin-bottom: 2rem;
-      opacity: 0;
-      animation: fadeUp 0.6s ease 0.2s forwards;
+    @keyframes gradientShift {
+      0%, 100% { transform: translate(0, 0) rotate(0deg); }
+      33% { transform: translate(5%, 5%) rotate(120deg); }
+      66% { transform: translate(-5%, 3%) rotate(240deg); }
     }
 
-    .hero h1 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(4rem, 12vw, 9rem);
-      line-height: 0.9;
-      letter-spacing: 0.04em;
-      opacity: 0;
-      animation: fadeUp 0.7s ease 0.4s forwards;
-    }
-    .hero h1 .line2 { color: var(--accent); }
-
-    .hero-sub {
-      margin-top: 1.8rem;
-      max-width: 520px;
-      font-size: 1rem;
-      color: #888;
-      line-height: 1.7;
-      font-weight: 300;
-      opacity: 0;
-      animation: fadeUp 0.7s ease 0.6s forwards;
+    /* Floating particles */
+    .particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
     }
 
-    .hero-cta {
-      margin-top: 3rem;
-      display: flex; gap: 1rem;
-      opacity: 0;
-      animation: fadeUp 0.7s ease 0.8s forwards;
-    }
-    .btn {
-      padding: 0.85rem 2.2rem;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.82rem;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      text-decoration: none;
-      border-radius: 2px;
-      transition: all 0.25s;
-      cursor: none;
-    }
-    .btn-primary {
-      background: var(--accent);
-      color: #fff;
-      border: 1px solid var(--accent);
-    }
-    .btn-primary:hover { background: #c5271a; border-color: #c5271a; transform: translateY(-2px); }
-    .btn-ghost {
-      background: transparent;
-      color: var(--text);
-      border: 1px solid var(--border);
-    }
-    .btn-ghost:hover { border-color: #555; transform: translateY(-2px); }
-
-    /* Scroll indicator */
-    .scroll-hint {
-      position: absolute; bottom: 2.5rem;
-      display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
-      opacity: 0;
-      animation: fadeUp 0.7s ease 1.2s forwards;
-    }
-    .scroll-hint span { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); }
-    .scroll-line {
-      width: 1px; height: 50px;
-      background: linear-gradient(to bottom, var(--accent), transparent);
-      animation: scrollPulse 1.8s ease-in-out infinite;
-    }
-    @keyframes scrollPulse {
-      0%, 100% { opacity: 0.3; transform: scaleY(0.6); transform-origin: top; }
-      50% { opacity: 1; transform: scaleY(1); }
+    .particle {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      animation: float 20s infinite ease-in-out;
     }
 
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(24px); }
-      to { opacity: 1; transform: translateY(0); }
+    @keyframes float {
+      0%, 100% { 
+        transform: translateY(0) translateX(0);
+        opacity: 0;
+      }
+      10% { opacity: 1; }
+      90% { opacity: 1; }
+      100% { 
+        transform: translateY(-100vh) translateX(50px);
+        opacity: 0;
+      }
     }
 
-    /* STATS BAND */
-    .stats-band {
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      overflow: hidden;
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
     }
-    .stat-item {
-      flex: 1;
-      padding: 2.2rem 2rem;
+
+    header {
       text-align: center;
-      border-right: 1px solid var(--border);
+      margin-bottom: 4rem;
+      padding: 3rem 0;
+      opacity: 0;
+      animation: fadeInDown 1s ease forwards 0.2s;
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(135deg, #fff 0%, #999 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
       position: relative;
-      transition: background 0.3s;
-    }
-    .stat-item:last-child { border-right: none; }
-    .stat-item:hover { background: rgba(232,49,26,0.04); }
-    .stat-num {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 2.8rem;
-      color: var(--accent);
-      letter-spacing: 0.05em;
-      display: block;
-    }
-    .stat-label {
-      font-size: 0.72rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-top: 0.2rem;
+      display: inline-block;
     }
 
-    /* PROJECTS */
-    .section-header {
-      padding: 5rem 3rem 3rem;
-      display: flex; align-items: baseline; gap: 1.5rem;
-    }
-    .section-num {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1rem;
-      color: var(--accent);
-      letter-spacing: 0.15em;
-    }
-    .section-title {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 3rem;
-      letter-spacing: 0.08em;
-    }
-    .section-line {
-      flex: 1; height: 1px;
-      background: var(--border);
-      margin-bottom: 0.4rem;
-    }
-
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
-      gap: 0;
-      border-top: 1px solid var(--border);
-    }
-
-    /* Flip card */
-    .project-card {
-      perspective: 1200px;
-      height: 480px;
-      border-right: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      cursor: none;
-    }
-    .project-card:nth-child(2n) { border-right: none; }
-
-    .card-inner {
-      position: relative;
-      width: 100%; height: 100%;
-      transform-style: preserve-3d;
-      transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .project-card:hover .card-inner,
-    .project-card.flipped .card-inner {
-      transform: rotateY(180deg);
-    }
-
-    .card-front, .card-back {
-      position: absolute; inset: 0;
-      backface-visibility: hidden;
-      padding: 3rem;
-      display: flex; flex-direction: column;
-    }
-    .card-front { background: var(--card-bg); }
-    .card-back {
-      background: var(--accent);
-      transform: rotateY(180deg);
-      justify-content: space-between;
-    }
-
-    .card-index {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 5rem;
-      color: rgba(255,255,255,0.06);
-      line-height: 1;
-      margin-bottom: auto;
-    }
-    .card-tag {
-      font-size: 0.65rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 0.8rem;
-    }
-    .card-title {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 3rem;
-      letter-spacing: 0.06em;
-      line-height: 1;
-      margin-bottom: 1.2rem;
-    }
-    .card-desc {
-      font-size: 0.9rem;
+    .subtitle {
       color: #888;
-      line-height: 1.7;
+      font-size: 1.1rem;
       font-weight: 300;
     }
-    .card-hover-hint {
-      margin-top: 2rem;
-      font-size: 0.65rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: #444;
-      display: flex; align-items: center; gap: 0.5rem;
-    }
-    .card-hover-hint::before {
-      content: '';
-      display: inline-block;
-      width: 20px; height: 1px;
-      background: #444;
+
+    .websites-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+      margin-bottom: 4rem;
     }
 
-    /* Back of card */
-    .card-back .back-label {
-      font-size: 0.65rem;
-      letter-spacing: 0.2em;
+    .website-card {
+      background: #1a1a1a;
+      border: 1px solid #2a2a2a;
+      border-radius: 12px;
+      padding: 2.5rem;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+      opacity: 0;
+      animation: fadeInUp 0.8s ease forwards;
+    }
+
+    .website-card:nth-child(1) { animation-delay: 0.3s; }
+    .website-card:nth-child(2) { animation-delay: 0.5s; }
+    .website-card:nth-child(3) { animation-delay: 0.7s; }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .website-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent), transparent);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .website-card::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      transition: all 0.6s ease;
+    }
+
+    .website-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.5), 0 0 20px var(--accent-glow);
+    }
+
+    .website-card:hover::before {
+      opacity: 1;
+    }
+
+    .website-card:hover::after {
+      width: 300px;
+      height: 300px;
+      opacity: 0.15;
+    }
+
+    .card-header {
+      margin-bottom: 1.5rem;
+    }
+
+    .category {
+      font-size: 0.75rem;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.6);
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      font-weight: 600;
       margin-bottom: 0.5rem;
     }
-    .card-back .back-title {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 2.4rem;
-      letter-spacing: 0.06em;
+
+    .website-title {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
       color: #fff;
     }
-    .card-back .back-features {
-      list-style: none;
-      margin: 1.5rem 0;
-      display: flex; flex-direction: column; gap: 0.75rem;
-    }
-    .card-back .back-features li {
-      font-size: 0.88rem;
-      color: rgba(255,255,255,0.85);
-      display: flex; align-items: center; gap: 0.75rem;
-      font-weight: 300;
-    }
-    .card-back .back-features li::before {
-      content: '→';
-      font-size: 0.8rem;
-      color: rgba(255,255,255,0.5);
-    }
-    .card-back .back-link {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      padding: 0.85rem 2rem;
-      background: #fff;
-      color: var(--accent);
-      text-decoration: none;
-      font-size: 0.78rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      border-radius: 2px;
-      width: fit-content;
-      transition: background 0.2s, transform 0.2s;
-    }
-    .card-back .back-link:hover { background: rgba(255,255,255,0.88); transform: translateX(4px); }
-    .card-back .back-link .arrow { transition: transform 0.2s; }
-    .card-back .back-link:hover .arrow { transform: translateX(3px); }
 
-    /* Judo card accent color override */
-    .project-card.judo .card-back { background: #1a3a6b; }
-    .project-card.judo .card-back .back-link { color: #1a3a6b; }
-    .project-card.judo .card-tag { color: #4a8fd6; }
+    .website-url {
+      font-size: 0.9rem;
+      color: #666;
+      margin-bottom: 1rem;
+    }
 
-    /* ABOUT STRIP */
-    .about-strip {
-      padding: 5rem 3rem;
-      border-top: 1px solid var(--border);
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: center;
-    }
-    .about-left .big-text {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(2.5rem, 5vw, 4rem);
-      line-height: 1.05;
-      letter-spacing: 0.05em;
-    }
-    .about-left .big-text em {
-      font-style: normal;
-      color: var(--accent);
-    }
-    .about-right p {
-      color: #888;
+    .website-description {
+      color: #aaa;
       font-size: 0.95rem;
-      line-height: 1.8;
-      font-weight: 300;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
     }
 
-    /* FOOTER */
+    .features-list {
+      list-style: none;
+      margin-bottom: 1.5rem;
+    }
+
+    .features-list li {
+      padding: 0.4rem 0;
+      color: #999;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .features-list li::before {
+      content: '→';
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .visit-link {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: all 0.2s ease;
+    }
+
+    .visit-link:hover {
+      background: var(--accent-dark);
+      transform: translateX(4px);
+      box-shadow: 0 4px 12px var(--accent-glow);
+    }
+
+    .visit-link::after {
+      content: '→';
+      margin-left: 0.5rem;
+      display: inline-block;
+      transition: transform 0.2s ease;
+    }
+
+    .visit-link:hover::after {
+      transform: translateX(4px);
+    }
+
+    /* Individual card accent colors */
+    .website-card:nth-child(1) {
+      --accent: #4a9eff;
+      --accent-dark: #3a7ed8;
+      --accent-glow: rgba(74, 158, 255, 0.3);
+    }
+
+    .website-card:nth-child(2) {
+      --accent: #e8311a;
+      --accent-dark: #c5271a;
+      --accent-glow: rgba(232, 49, 26, 0.3);
+    }
+
+    .website-card:nth-child(3) {
+      --accent: #5b8fd6;
+      --accent-dark: #4a7ab8;
+      --accent-glow: rgba(91, 143, 214, 0.3);
+    }
+
     footer {
-      border-top: 1px solid var(--border);
-      padding: 2rem 3rem;
-      display: flex; align-items: center; justify-content: space-between;
+      text-align: center;
+      padding: 2rem 0;
+      color: #555;
+      font-size: 0.85rem;
+      border-top: 1px solid #2a2a2a;
+      margin-top: 2rem;
     }
-    .footer-logo {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.1rem;
-      letter-spacing: 0.12em;
-      color: var(--muted);
-    }
-    .footer-logo span { color: var(--accent); }
-    .footer-copy { font-size: 0.75rem; color: var(--muted); letter-spacing: 0.08em; }
 
     @media (max-width: 768px) {
-      nav { padding: 1rem 1.5rem; }
-      .about-strip { grid-template-columns: 1fr; gap: 2rem; padding: 3rem 1.5rem; }
-      .section-header { padding: 3rem 1.5rem 2rem; }
-      .projects-grid { grid-template-columns: 1fr; }
-      .project-card { border-right: none; }
-      .stats-band { flex-direction: column; }
-      .stat-item { border-right: none; border-bottom: 1px solid var(--border); }
-      footer { flex-direction: column; gap: 1rem; text-align: center; }
-      .hero { padding: 7rem 1.5rem 3rem; }
+      body {
+        padding: 1rem;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+      }
+
+      .websites-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .website-card {
+        padding: 2rem;
+      }
     }
   </style>
 </head>
 <body>
-
-  <div id="cursor"></div>
-  <div id="cursor-ring"></div>
-
-  <nav>
-    <a class="nav-logo" href="#">COMBAT<span>.</span>BUILD</a>
-    <div class="nav-links">
-      <a href="#projects">Projects</a>
-      <a href="#about">About</a>
-    </div>
-  </nav>
-
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-grid"></div>
-    <div class="hero-glow"></div>
-    <div class="hero-tag">Combat Sports · Data Platforms</div>
-    <h1>
-      <div class="line1">BUILT FOR</div>
-      <div class="line2">FIGHTERS</div>
-    </h1>
-    <p class="hero-sub">Data-driven platforms for the grappling and martial arts community. Where sport meets analytics.</p>
-    <div class="hero-cta">
-      <a href="#projects" class="btn btn-primary">View Projects</a>
-      <a href="#about" class="btn btn-ghost">About</a>
-    </div>
-    <div class="scroll-hint">
-      <span>Scroll</span>
-      <div class="scroll-line"></div>
-    </div>
-  </section>
-
-  <!-- STATS BAND -->
-  <div class="stats-band">
-    <div class="stat-item">
-      <span class="stat-num" data-target="22444">0</span>
-      <div class="stat-label">Athletes Tracked</div>
-    </div>
-    <div class="stat-item">
-      <span class="stat-num" data-target="2">0</span>
-      <div class="stat-label">Live Platforms</div>
-    </div>
-    <div class="stat-item">
-      <span class="stat-num">2009</span>
-      <div class="stat-label">Data From</div>
-    </div>
-    <div class="stat-item">
-      <span class="stat-num">ELO</span>
-      <div class="stat-label">Rating System</div>
-    </div>
+  <div class="bg-video">
+    <canvas id="bgCanvas"></canvas>
   </div>
+  <div class="bg-gradient"></div>
+  <div class="particles" id="particles"></div>
+  
+  <div class="container">
+    <header>
+      <h1>Portfolio Websites</h1>
+      <p class="subtitle">Data-driven platforms for sports and travel</p>
+    </header>
 
-  <!-- PROJECTS -->
-  <section id="projects">
-    <div class="section-header">
-      <span class="section-num">01</span>
-      <h2 class="section-title">Featured Projects</h2>
-      <div class="section-line"></div>
-    </div>
-
-    <div class="projects-grid">
+    <div class="websites-grid">
+      
+      <!-- QMetrics -->
+      <div class="website-card">
+        <div class="card-header">
+          <div class="category">Landmarks & Travel</div>
+          <h2 class="website-title">QMetrics</h2>
+          <div class="website-url">qmetrics.xyz</div>
+        </div>
+        <p class="website-description">
+          A landmark explorer featuring thousands of historic landmarks, monuments, and tourist attractions worldwide. Browse by country, discover nearby landmarks, view locations on interactive maps, and explore detailed information about heritage sites around the globe.
+        </p>
+        <ul class="features-list">
+          <li>Searchable landmark database</li>
+          <li>Country-based browsing</li>
+          <li>Interactive map integration</li>
+          <li>Nearby landmark recommendations</li>
+          <li>Historic sites, monuments, museums</li>
+        </ul>
+        <a href="https://qmetrics.xyz" target="_blank" rel="noopener" class="visit-link">Visit QMetrics</a>
+      </div>
 
       <!-- BJJMetrics -->
-      <div class="project-card bjj" tabindex="0" aria-label="BJJMetrics project">
-        <div class="card-inner">
-          <div class="card-front">
-            <div class="card-index">01</div>
-            <div class="card-tag">Brazilian Jiu-Jitsu</div>
-            <h3 class="card-title">BJJ<br>METRICS</h3>
-            <p class="card-desc">Competition results, rankings, and career achievement tracking for BJJ athletes worldwide. Data-driven insight for the grappling community.</p>
-            <div class="card-hover-hint">Hover to explore</div>
-          </div>
-          <div class="card-back">
-            <div>
-              <div class="back-label">Project 01</div>
-              <div class="back-title">BJJMetrics</div>
-            </div>
-            <ul class="back-features">
-              <li>Competition results database</li>
-              <li>Athlete ranking & career stats</li>
-              <li>Match history & analytics</li>
-              <li>Informed matchup data</li>
-            </ul>
-            <a href="https://www.bjjmetrics.com" target="_blank" rel="noopener" class="back-link">
-              Visit bjjmetrics.com <span class="arrow">→</span>
-            </a>
-          </div>
+      <div class="website-card">
+        <div class="card-header">
+          <div class="category">Brazilian Jiu-Jitsu</div>
+          <h2 class="website-title">BJJMetrics</h2>
+          <div class="website-url">bjjmetrics.com</div>
         </div>
+        <p class="website-description">
+          Competition results, rankings, and career achievement tracking for Brazilian Jiu-Jitsu athletes worldwide. Track match histories, analyze performance data, and explore comprehensive statistics for the grappling community.
+        </p>
+        <ul class="features-list">
+          <li>Competition results database</li>
+          <li>Athlete rankings & career stats</li>
+          <li>Match history & analytics</li>
+          <li>Performance tracking</li>
+          <li>Informed matchup data</li>
+        </ul>
+        <a href="https://www.bjjmetrics.com" target="_blank" rel="noopener" class="visit-link">Visit BJJMetrics</a>
       </div>
 
       <!-- Pro Judo -->
-      <div class="project-card judo" tabindex="0" aria-label="Pro Judo project">
-        <div class="card-inner">
-          <div class="card-front">
-            <div class="card-index">02</div>
-            <div class="card-tag">International Judo Federation</div>
-            <h3 class="card-title">PRO<br>JUDO</h3>
-            <p class="card-desc">IJF results, match history, and ELO ratings for 22,000+ athletes from 2009 to present. Leaderboards, country rankings, and fighter profiles.</p>
-            <div class="card-hover-hint">Hover to explore</div>
-          </div>
-          <div class="card-back">
-            <div>
-              <div class="back-label">Project 02</div>
-              <div class="back-title">Pro Judo</div>
-            </div>
-            <ul class="back-features">
-              <li>22,000+ athlete profiles</li>
-              <li>ELO rating system</li>
-              <li>IJF match history (2009–present)</li>
-              <li>Country & global leaderboards</li>
-            </ul>
-            <a href="https://projudo.xyz" target="_blank" rel="noopener" class="back-link">
-              Visit projudo.xyz <span class="arrow">→</span>
-            </a>
-          </div>
+      <div class="website-card">
+        <div class="card-header">
+          <div class="category">International Judo</div>
+          <h2 class="website-title">Pro Judo</h2>
+          <div class="website-url">projudo.xyz</div>
         </div>
+        <p class="website-description">
+          IJF competition results, match history, and ELO ratings for over 22,000 judo athletes from 2009 to present. Features comprehensive leaderboards, country rankings, and detailed fighter profiles with complete match records.
+        </p>
+        <ul class="features-list">
+          <li>22,000+ athlete profiles</li>
+          <li>ELO rating system</li>
+          <li>IJF match history (2009–present)</li>
+          <li>Global & country leaderboards</li>
+          <li>Detailed fighter statistics</li>
+        </ul>
+        <a href="https://projudo.xyz" target="_blank" rel="noopener" class="visit-link">Visit Pro Judo</a>
       </div>
 
     </div>
-  </section>
 
-  <!-- ABOUT -->
-  <section id="about" class="about-strip">
-    <div class="about-left">
-      <p class="big-text">DATA THAT <em>RESPECTS</em> THE SPORT.</p>
-    </div>
-    <div class="about-right">
-      <p>These platforms were built to bring transparency and depth to combat sports that deserve better tooling. Whether you're an athlete tracking your career, a coach preparing for competition, or a fan who loves the numbers — these tools are for you.</p>
-    </div>
-  </section>
-
-  <footer>
-    <div class="footer-logo">COMBAT<span>.</span>BUILD</div>
-    <div class="footer-copy">&copy; 2025 · All rights reserved</div>
-  </footer>
+    <footer>
+      &copy; <span id="year"></span> Portfolio Websites
+    </footer>
+  </div>
 
   <script>
-    // Cursor
-    const cursor = document.getElementById('cursor');
-    const ring = document.getElementById('cursor-ring');
-    let mx = 0, my = 0, rx = 0, ry = 0;
-    document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
-    function animateCursor() {
-      cursor.style.left = mx + 'px'; cursor.style.top = my + 'px';
-      rx += (mx - rx) * 0.15; ry += (my - ry) * 0.15;
-      ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
-      requestAnimationFrame(animateCursor);
+    // Animated mesh background
+    const canvas = document.getElementById('bgCanvas');
+    const ctx = canvas.getContext('2d');
+    
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
     }
-    animateCursor();
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
 
-    // Touch: disable cursor on touch devices
-    window.addEventListener('touchstart', () => {
-      cursor.style.display = 'none';
-      ring.style.display = 'none';
-      document.body.style.cursor = 'auto';
-    }, { once: true });
+    // Particle network
+    const particles = [];
+    const particleCount = 80;
+    const connectionDistance = 150;
+    const colors = [
+      'rgba(74, 158, 255, 0.6)',
+      'rgba(232, 49, 26, 0.6)',
+      'rgba(91, 143, 214, 0.6)'
+    ];
 
-    // Tap-to-flip on touch
-    document.querySelectorAll('.project-card').forEach(card => {
-      card.addEventListener('click', () => card.classList.toggle('flipped'));
-      card.addEventListener('keydown', e => {
-        if (e.key === 'Enter' || e.key === ' ') card.classList.toggle('flipped');
+    class Particle {
+      constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.vx = (Math.random() - 0.5) * 0.5;
+        this.vy = (Math.random() - 0.5) * 0.5;
+        this.color = colors[Math.floor(Math.random() * colors.length)];
+        this.size = Math.random() * 2 + 1;
+      }
+
+      update() {
+        this.x += this.vx;
+        this.y += this.vy;
+
+        if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+        if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+      }
+
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fillStyle = this.color;
+        ctx.fill();
+      }
+    }
+
+    // Initialize particles
+    for (let i = 0; i < particleCount; i++) {
+      particles.push(new Particle());
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      // Update and draw particles
+      particles.forEach(particle => {
+        particle.update();
+        particle.draw();
+      });
+
+      // Draw connections
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+
+          if (distance < connectionDistance) {
+            const opacity = (1 - distance / connectionDistance) * 0.3;
+            ctx.beginPath();
+            ctx.strokeStyle = `rgba(255, 255, 255, ${opacity})`;
+            ctx.lineWidth = 0.5;
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.stroke();
+          }
+        }
+      }
+
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+
+    // Dynamic year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Create floating particles
+    const particlesContainer = document.getElementById('particles');
+    const particleCount = 30;
+
+    for (let i = 0; i < particleCount; i++) {
+      const particle = document.createElement('div');
+      particle.className = 'particle';
+      particle.style.left = Math.random() * 100 + '%';
+      particle.style.top = Math.random() * 100 + 'vh';
+      particle.style.animationDelay = Math.random() * 20 + 's';
+      particle.style.animationDuration = (15 + Math.random() * 10) + 's';
+      particlesContainer.appendChild(particle);
+    }
+
+    // Smooth parallax effect on mouse move
+    document.addEventListener('mousemove', (e) => {
+      const cards = document.querySelectorAll('.website-card');
+      const mouseX = e.clientX / window.innerWidth;
+      const mouseY = e.clientY / window.innerHeight;
+
+      cards.forEach((card, index) => {
+        const depth = (index + 1) * 5;
+        const moveX = (mouseX - 0.5) * depth;
+        const moveY = (mouseY - 0.5) * depth;
+        
+        card.style.transform = `translate(${moveX}px, ${moveY}px)`;
       });
     });
 
-    // Counting animation for stats
-    function countUp(el, target, duration = 1800) {
-      const start = performance.now();
-      const isNum = !isNaN(target);
-      if (!isNum) return;
-      function step(now) {
-        const p = Math.min((now - start) / duration, 1);
-        const ease = 1 - Math.pow(1 - p, 3);
-        el.textContent = Math.round(ease * target).toLocaleString();
-        if (p < 1) requestAnimationFrame(step);
-      }
-      requestAnimationFrame(step);
-    }
-
-    const statObserver = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const el = entry.target;
-          const target = parseInt(el.dataset.target);
-          if (!isNaN(target)) countUp(el, target);
-          statObserver.unobserve(el);
-        }
+    // Reset transform on card hover
+    document.querySelectorAll('.website-card').forEach(card => {
+      card.addEventListener('mouseenter', function() {
+        this.style.transform = 'translateY(-8px) scale(1.02)';
       });
-    }, { threshold: 0.5 });
-
-    document.querySelectorAll('[data-target]').forEach(el => statObserver.observe(el));
-
-    // Fade-in on scroll
-    const fadeEls = document.querySelectorAll('.about-strip, .section-header, .projects-grid, .stats-band');
-    const fadeObserver = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.opacity = '1';
-          entry.target.style.transform = 'translateY(0)';
-        }
+      
+      card.addEventListener('mouseleave', function() {
+        this.style.transform = 'translate(0, 0)';
       });
-    }, { threshold: 0.1 });
+    });
 
-    fadeEls.forEach(el => {
-      el.style.opacity = '0';
-      el.style.transform = 'translateY(30px)';
-      el.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
-      fadeObserver.observe(el);
+    // Add tilt effect on card hover
+    document.querySelectorAll('.website-card').forEach(card => {
+      card.addEventListener('mousemove', function(e) {
+        const rect = this.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        
+        const rotateX = (y - centerY) / 20;
+        const rotateY = (centerX - x) / 20;
+        
+        this.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px) scale(1.02)`;
+      });
+      
+      card.addEventListener('mouseleave', function() {
+        this.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0) scale(1)';
+      });
     });
   </script>
 </body>
