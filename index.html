@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Portfolio Websites</title>
-  <meta name="description" content="Portfolio of web platforms: QMetrics, BJJMetrics, and Pro Judo">
+  <meta name="description" content="Portfolio of web platforms: QMetrics, BJJMetrics, Pro Judo, and Sheerio Fan">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   
@@ -165,6 +165,7 @@
     .website-card:nth-child(1) { animation-delay: 0.3s; }
     .website-card:nth-child(2) { animation-delay: 0.5s; }
     .website-card:nth-child(3) { animation-delay: 0.7s; }
+    .website-card:nth-child(4) { animation-delay: 0.9s; }
 
     @keyframes fadeInUp {
       from {
@@ -320,6 +321,12 @@
       --accent-glow: rgba(91, 143, 214, 0.3);
     }
 
+    .website-card:nth-child(4) {
+      --accent: #ff6b9d;
+      --accent-dark: #d8567f;
+      --accent-glow: rgba(255, 107, 157, 0.3);
+    }
+
     footer {
       text-align: center;
       padding: 2rem 0;
@@ -403,19 +410,18 @@
         <div class="card-header">
           <div class="category">Landmarks & Travel</div>
           <h2 class="website-title">QMetrics</h2>
-          <div class="website-url">qmetrics.xyz</div>
+          <div class="website-url">qmetrics.net</div>
         </div>
         <p class="website-description">
-          A landmark explorer featuring thousands of historic landmarks, monuments, and tourist attractions worldwide. Browse by country, discover nearby landmarks, view locations on interactive maps, and explore detailed information about heritage sites around the globe.
+          Website monitoring and analytics platform. Track uptime, performance, and traffic insights across your sites with real-time alerts and clear, actionable dashboards.
         </p>
         <ul class="features-list">
-          <li>Searchable landmark database</li>
-          <li>Country-based browsing</li>
-          <li>Interactive map integration</li>
-          <li>Nearby landmark recommendations</li>
-          <li>Historic sites, monuments, museums</li>
+          <li>Uptime & performance monitoring</li>
+          <li>Real-time alerting</li>
+          <li>Traffic & analytics dashboards</li>
+          <li>Multi-site tracking</li>
         </ul>
-        <a href="https://qmetrics.xyz" target="_blank" rel="noopener" class="visit-link">Visit QMetrics</a>
+        <a href="https://qmetrics.net" target="_blank" rel="noopener" class="visit-link">Visit QMetrics</a>
       </div>
 
       <!-- BJJMetrics -->
@@ -458,6 +464,25 @@
         <a href="https://projudo.xyz" target="_blank" rel="noopener" class="visit-link">Visit Pro Judo</a>
       </div>
 
+      <!-- Sheerio Fan -->
+      <div class="website-card">
+        <div class="card-header">
+          <div class="category">Music Fan Archive</div>
+          <h2 class="website-title">Sheerio Fan</h2>
+          <div class="website-url">sheerio-fan.vercel.app</div>
+        </div>
+        <p class="website-description">
+          An unofficial fan-made archive of Ed Sheeran's complete discography, cataloging every album and track in one place with embedded playback.
+        </p>
+        <ul class="features-list">
+          <li>219 tracks across 8 albums & 16 EPs</li>
+          <li>Sequential album playback</li>
+          <li>Browse by album, track, or full discography</li>
+          <li>Gallery, quotes & tour info</li>
+        </ul>
+        <a href="https://sheerio-fan.vercel.app" target="_blank" rel="noopener" class="visit-link">Visit Sheerio Fan</a>
+      </div>
+
     </div>
 
     <footer>
@@ -492,7 +517,8 @@
     const colors = [
       'rgba(74, 158, 255, 0.6)',
       'rgba(232, 49, 26, 0.6)',
-      'rgba(91, 143, 214, 0.6)'
+      'rgba(91, 143, 214, 0.6)',
+      'rgba(255, 107, 157, 0.6)'
     ];
 
     class Particle {
