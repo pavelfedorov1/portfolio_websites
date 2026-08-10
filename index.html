@@ -3,10 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <title>Portfolio Websites</title>
-  <meta name="description" content="Portfolio of web platforms: QMetrics, BJJMetrics, Pro Judo, and Sheerio Fan">
+  <meta name="description" content="Portfolio of web platforms: QMetrics, BJJMetrics, Pro Judo, Sheerio Fan, The Gable Era, and Coney Island Queen">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-  
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJLTLL192Y"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-ZJLTLL192Y');
+  </script>
+
   <style>
     * {
       margin: 0;
@@ -166,6 +175,8 @@
     .website-card:nth-child(2) { animation-delay: 0.5s; }
     .website-card:nth-child(3) { animation-delay: 0.7s; }
     .website-card:nth-child(4) { animation-delay: 0.9s; }
+    .website-card:nth-child(5) { animation-delay: 1.1s; }
+    .website-card:nth-child(6) { animation-delay: 1.3s; }
 
     @keyframes fadeInUp {
       from {
@@ -327,6 +338,18 @@
       --accent-glow: rgba(255, 107, 157, 0.3);
     }
 
+    .website-card:nth-child(5) {
+      --accent: #f5a623;
+      --accent-dark: #d4890f;
+      --accent-glow: rgba(245, 166, 35, 0.3);
+    }
+
+    .website-card:nth-child(6) {
+      --accent: #b892ff;
+      --accent-dark: #9670e0;
+      --accent-glow: rgba(184, 146, 255, 0.3);
+    }
+
     footer {
       text-align: center;
       padding: 2rem 0;
@@ -481,6 +504,44 @@
           <li>Gallery, quotes & tour info</li>
         </ul>
         <a href="https://sheerio-fan.vercel.app" target="_blank" rel="noopener" class="visit-link">Visit Sheerio Fan</a>
+      </div>
+
+      <!-- The Gable Era -->
+      <div class="website-card">
+        <div class="card-header">
+          <div class="category">Wrestling & MMA</div>
+          <h2 class="website-title">The Gable Era</h2>
+          <div class="website-url">thegableera.vercel.app</div>
+        </div>
+        <p class="website-description">
+          An unofficial fan archive for Olympic and UFC wrestler Gable Steveson, covering his full wrestling and MMA career with embedded match footage from the rights holders that filmed it.
+        </p>
+        <ul class="features-list">
+          <li>Full wrestling & MMA match history</li>
+          <li>Career record & medal case</li>
+          <li>Embedded rights-holder footage</li>
+          <li>Live ELO & next-fight tracking</li>
+        </ul>
+        <a href="https://thegableera.vercel.app" target="_blank" rel="noopener" class="visit-link">Visit The Gable Era</a>
+      </div>
+
+      <!-- Coney Island Queen -->
+      <div class="website-card">
+        <div class="card-header">
+          <div class="category">Music Fan Archive</div>
+          <h2 class="website-title">Coney Island Queen</h2>
+          <div class="website-url">coney-island-queen.vercel.app</div>
+        </div>
+        <p class="website-description">
+          An unofficial fan-made archive of Lana Del Rey's complete discography, cataloging every album and track in one place with embedded playback.
+        </p>
+        <ul class="features-list">
+          <li>Full studio discography, track by track</li>
+          <li>Sequential album playback</li>
+          <li>Browse by album, track, or full discography</li>
+          <li>Gallery, quotes & tour info</li>
+        </ul>
+        <a href="https://coney-island-queen.vercel.app" target="_blank" rel="noopener" class="visit-link">Visit Coney Island Queen</a>
       </div>
 
     </div>
