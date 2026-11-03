@@ -357,6 +357,25 @@
       --accent-glow: rgba(62, 207, 142, 0.3);
     }
 
+    /* Wide card: spans the full grid row */
+    .website-card.wide {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 0 3rem;
+      align-items: center;
+    }
+
+    .website-card.wide .card-header { margin-bottom: 0; }
+    .website-card.wide .website-description { margin-bottom: 1rem; }
+    .website-card.wide .visit-link { justify-self: start; }
+    .website-card.wide .wide-body { display: flex; flex-direction: column; align-items: flex-start; }
+
+    @media (max-width: 768px) {
+      .website-card.wide { grid-template-columns: 1fr; }
+      .website-card.wide .card-header { margin-bottom: 1.5rem; }
+    }
+
     footer {
       text-align: center;
       padding: 2rem 0;
@@ -553,12 +572,13 @@
 
 
       <!-- Grappler Blog -->
-      <div class="website-card">
+      <div class="website-card wide">
         <div class="card-header">
           <div class="category">Grappling Blog</div>
           <h2 class="website-title">Grappler Blog</h2>
           <div class="website-url">kimonofighter.blogspot.com</div>
         </div>
+        <div class="wide-body">
         <p class="website-description">
           A personal blog about grappling, written alongside my other BJJ and judo projects.
         </p>
@@ -567,6 +587,7 @@
           <li>Brazilian Jiu-Jitsu & judo</li>
         </ul>
         <a href="https://kimonofighter.blogspot.com" target="_blank" rel="noopener" class="visit-link">Visit Grappler Blog</a>
+        </div>
       </div>
 
     </div>
