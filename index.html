@@ -216,6 +216,12 @@
       transition: all 0.6s ease;
     }
 
+    /* decorative layers must never take clicks: the hover glow is a 300px circle over the card centre,
+       and on a short card it covered the button (Grappler Blog link did nothing) */
+    .website-card::before,
+    .website-card::after { pointer-events: none; }
+    .visit-link { position: relative; z-index: 2; }
+
     .website-card:hover {
       border-color: var(--accent);
       transform: translateY(-8px) scale(1.02);
